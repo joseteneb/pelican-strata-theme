@@ -3,9 +3,12 @@ Strata theme for Pelican
 
 Pelican theme based on [Strata by HTML5 UP](http://html5up.net/)
 
+![Screenshot](https://raw.githubusercontent.com/joseteneb/pelican-strata-theme/master/screenshot.png)
+
 Settings
 --------
 
+```
 AUTHOR = u'xxx'
 SITENAME = u"xxx"
 SITESUBTITLE = 'xxx'
@@ -17,6 +20,7 @@ EMAIL = 'xxx@xxx.xx'
 SOCIAL = (('twitter', 'http://twitter.com/xxx'),
           ('linkedin', 'http://www.linkedin.com/in/xxx'),
           ('github', 'http://github.com/xxx'))
+```
 
 -----------------------------------------------------------------------------------
 
