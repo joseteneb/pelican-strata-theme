@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		{% block head %}
+		<meta charset="utf-8" />
+		<title>{{ SITENAME }}{% block title %}{% endblock %}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="robots" content="{{ ROBOTS }}" />
+		{% block meta %}
+		<meta name="author" content="{{ AUTHOR }}" />
+		<meta name="description" content="{{ SITEDESCRIPTION }}" />
+		{% endblock %}
+ 		{% if FEED_ALL_ATOM %}
+        	<link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+        {% endif %}
+        {% if FEED_ALL_RSS %}
+        	<link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+        {% endif %}
+        {% if FEED_ATOM %}
+        	<link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+        {% endif %}
+        {% if FEED_RSS %}
+        	<link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+        {% endif %}
+        {% if CATEGORY_FEED_ATOM and category %}
+        	<link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+        {% endif %}
+        {% if CATEGORY_FEED_RSS and category %}
+        	<link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+        {% endif %}
+		{% if FAVICON %}
+		<link rel="shortcut icon" href="{{ FAVICON }}" type="image/x-icon">
+		<link rel="icon" href="{{ FAVICON }}" type="image/x-icon">
+		{% endif %}
+		<!--[if lte IE 8]><script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/ie8.css" /><![endif]-->		
+		{% endblock head %}
+	</head>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header">				
+				<a href="{{ SITEURL }}" class="image avatar"><img class="" src="{{ SITEURL }}/images/{{ PROFILE_IMAGE }}"></a>
+				<h1><strong>{{ SITENAME }}</strong><br>{{ SITESUBTITLE }}</h1>
+				<ul class="page-list">
+					<li><a href="{{ SITEURL }}/archives.html">Archivo</a></li>
+		          	{% for page in pages|sort(attribute='title') %}
+			          	<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+		          	{% endfor %}
+		        </ul>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+			{% block content %}
+			{% endblock %}
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					{% for name, link in SOCIAL %}
+						<li><a href="{{ link }}" class="icon fa-{{ name }}" target="_blank"><span class="label">{{ name }}</span></a></li>
+					{% endfor %}
+						<li><a href="mailto:{{ EMAIL }}" class="icon fa-envelope"><span class="label">email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; {{ AUTHOR }}</li><li>Powered by <a href="http://getpelican.com/" target="_blank">Pelican</a></li><li>Design: <a target="_blank" href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
+			<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.poptrox.min.js"></script>
+			<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/skel.min.js"></script>
+			<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/util.js"></script>
+			<!--[if lte IE 8]><script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/ie/respond.min.js"></script><![endif]-->
+			<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/main.js"></script>
+			{% include 'fragments/google_analytics.html' %}
+
+	</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
+  {% if article.description %}
+    <meta name="description" content="{{article.description}}" />
+  {% endif %}
+
+  {% for tag in article.tags %}
+    <meta name="tags" content="{{tag}}" />
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+<article>
+	<header class="major">
+		<h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+		<p class="published" title="{{ article.date.isoformat() }}">
+      		{{ article.locale_date }}
+    	</p>
+	</header>
+	<p>{{ article.content }}</p>
+	<ul class="alt">
+		<li>Category: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></li>
+	</ul>
+</article>
+{% include 'fragments/disqus.html' %}
+{% endblock %}
