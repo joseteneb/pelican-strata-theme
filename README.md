@@ -46,7 +46,13 @@ Features
 * Integration with Disqus
 * Integration with Google Analytics
 * Custom menu items
-* Translation menu (You can use this functionality with [I18N Sub-sites Plugin](https://github.com/getpelican/pelican-plugins/tree/master/i18n_subsites) and use a [jinja filter](https://github.com/getpelican/pelican-plugins/blob/master/i18n_subsites/implementing_language_buttons.rst) to translate the language codes)
+* Language menu (You can use this functionality with [I18N Sub-sites Plugin](https://github.com/getpelican/pelican-plugins/tree/master/i18n_subsites) and use a [jinja filter](https://github.com/getpelican/pelican-plugins/blob/master/i18n_subsites/implementing_language_buttons.rst) to translate the language codes)
+
+TODO
+----
+* Localize
+* Open Graph
+* Sharing buttons 
 
 
 Licence
