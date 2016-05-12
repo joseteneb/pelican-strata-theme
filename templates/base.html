@@ -46,13 +46,19 @@
 
 		<!-- Header -->
 			<header id="header">				
-				<a href="{{ SITEURL }}" class="image avatar"><img class="" src="{{ SITEURL }}/images/{{ PROFILE_IMAGE }}"></a>
+				<a href="{{ SITEURL }}" class="image avatar"><img class="" src="{{ main_siteurl }}/images/{{ PROFILE_IMAGE }}"></a>
 				<h1><strong>{{ SITENAME }}</strong><br>{{ SITESUBTITLE }}</h1>
+				<ul class="actions">
+					{% if lang_siteurls %}
+						{% for lang, siteurl in lang_siteurls.items() %}
+							<li{% if lang == DEFAULT_LANG %} class="active"{% endif %}><a href="{{ siteurl }}/">{{ lang | lookup_lang_name }}</a></li>
+						{% endfor %}
+					{% endif %}
+				</ul>
 				<ul class="page-list">
-					<li><a href="{{ SITEURL }}/archives.html">Archivo</a></li>
-		          	{% for page in pages|sort(attribute='title') %}
-			          	<li><a href="{{ page.url }}">{{ page.title }}</a></li>
-		          	{% endfor %}
+					{% for title, link in MENUITEMS %}
+			            <li><a href="{{ SITEURL }}/{{ link }}">{{ title }}</a></li>
+			        {% endfor %}
 		        </ul>
 			</header>
 

@@ -1,30 +1,58 @@
 Strata theme for Pelican
-=======================
+========================
 
-Pelican theme based on [Strata by HTML5 UP](http://html5up.net/)
+This is [Pelican](http://getpelican.com/) theme based on [Strata by HTML5 UP](http://html5up.net/). You can see it live at my [blog](http://joseteneb.com)
 
 ![Screenshot](https://raw.githubusercontent.com/joseteneb/pelican-strata-theme/master/screenshot.png)
 
+Installation
+------------
+
+Just clone this repo, then edit your "pelicanconf.py" and modify the "THEME" variable to make it point to the repo location. 
+
+
 Settings
 --------
+The following variables can be set in your "pelicanconf.py" file in order to customize your website.
+
 
 ```
 AUTHOR = u'xxx'
 SITENAME = u"xxx"
 SITESUBTITLE = 'xxx'
+
 FAVICON = SITEURL + '/images/xxx.ico'
+
 GOOGLE_ANALYTICS = ''
+
 PROFILE_IMAGE = 'xxx.jpg'
+
 DISQUS_SITENAME = ''
+
 EMAIL = 'xxx@xxx.xx'
+
 SOCIAL = (('twitter', 'http://twitter.com/xxx'),
           ('linkedin', 'http://www.linkedin.com/in/xxx'),
           ('github', 'http://github.com/xxx'))
+
+MENUITEMS = (( 'Blog', 'blog.html'),
+	     ( 'About', 'about.html')
+	    )
 ```
 
------------------------------------------------------------------------------------
+Features
+--------
+* Responsive
+* Integration with Disqus
+* Integration with Google Analytics
+* Custom menu items
+* Translation menu (You can use this functionality with [I18N Sub-sites Plugin](https://github.com/getpelican/pelican-plugins/tree/master/i18n_subsites) and use a [jinja filter](https://github.com/getpelican/pelican-plugins/blob/master/i18n_subsites/implementing_language_buttons.rst) to translate the language codes)
 
-Strata by HTML5 UP
+
+Licence
+-------
+
+"Strata by HTML5 UP"
 html5up.net | @n33co
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
